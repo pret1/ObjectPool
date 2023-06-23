@@ -14,6 +14,11 @@ class PoolObject
         $this->objects = $objects;
     }
 
+    /**
+     * Check instanceof incoming object and return them
+     *
+     * @return array
+     */
     public function getPoolObjects(): array
     {
         $validObjects = [];
