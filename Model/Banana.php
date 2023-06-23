@@ -8,6 +8,6 @@ class Banana implements PoolObjectInterface
 {
     public function execute(): string
     {
-        return 'Banana';
+        return 'Banana ';
     }
 }

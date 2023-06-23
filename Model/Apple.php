@@ -8,6 +8,6 @@ class Apple implements PoolObjectInterface
 {
     public function execute(): string
     {
-        return 'Apple';
+        return 'Apple ';
     }
 }

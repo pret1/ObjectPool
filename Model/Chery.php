@@ -8,6 +8,6 @@ class Chery implements PoolObjectInterface
 {
     public function execute(): string
     {
-        return 'Chery';
+        return 'Chery ';
     }
 }
