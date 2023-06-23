@@ -3,23 +3,24 @@
 namespace SKonau\ObjectPool\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\Controller\ResultInterface;
+use SKonau\ObjectPool\Model\PoolObject;
 
 class Index implements HttpGetActionInterface
 {
-    private $resultFactory;
+    protected $objectPool;
 
-    public function __construct(ResultFactory $resultFactory)
-    {
-        $this->resultFactory = $resultFactory;
+    public function __construct(
+        PoolObject $objectPool
+    ) {
+        $this->objectPool = $objectPool;
     }
 
-    public function execute(): ResultInterface
+    public function execute()
     {
-        $a = 1;
-        $result = $this->resultFactory->create(ResultFactory::TYPE_RAW);
-        $result->setContents("$a");
-        return $result;
+        $objects = $this->objectPool->getPoolObjects();
+
+        foreach ($objects as $object) {
+            echo $object->execute();
+        }
     }
 }

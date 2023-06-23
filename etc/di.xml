@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="MyPoolObject" type="SKonau\ObjectPool\Model\PoolObject">
+        <arguments>
+            <argument name="objects" xsi:type="array">
+                <item name="object1" xsi:type="object">SKonau\ObjectPool\Model\Apple</item>
+                <item name="object2" xsi:type="object">SKonau\ObjectPool\Model\Banana</item>
+                <item name="object3" xsi:type="object">SKonau\ObjectPool\Model\Chery</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="SKonau\ObjectPool\Controller\Index\Index">
+        <arguments>
+            <argument name="objectPool" xsi:type="object">MyPoolObject</argument>
+        </arguments>
+    </type>
+</config>
